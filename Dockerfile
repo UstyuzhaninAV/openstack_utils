@@ -12,15 +12,15 @@ RUN apt update && \
                   python-glanceclient \
                   python-neutronclient
 
-RUN rm -rf /usr/lib/python*/dist-packages/yaml
-RUN rm -rf /usr/lib/python*/dist-packages/PyYAML-*
+RUN rm -rf /usr/lib/python*/dist-packages/yaml &&\
+rm -rf /usr/lib/python*/dist-packages/PyYAML-*
 #install utills
-RUN pip install --upgrade pip
-RUN pip install -U pyopenssl
-RUN pip install --upgrade cryptography
-RUN pip install ndg-httpsclient && \
-  pip install --upgrade pbr && \
-  pip install --upgrade cliff && \
-  pip install git+https://github.com/openstack/python-cinderclient \
+RUN pip install --upgrade pip &&\
+pip install -U pyopenssl &&\
+pip install --upgrade cryptography &&\
+pip install ndg-httpsclient && \
+pip install --upgrade pbr && \
+pip install --upgrade cliff && \
+pip install git+https://github.com/openstack/python-cinderclient \
               git+https://github.com/openstack/python-heatclient \
-              git+https://github.com/openstack/python-openstackclient
+              python-openstackclient
