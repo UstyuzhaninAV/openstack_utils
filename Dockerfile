@@ -1,4 +1,4 @@
-FROM debian:9.11-slim
+FROM debian:stable-slim
 
 RUN echo "empty"
 RUN apt update && \
