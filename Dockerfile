@@ -1,8 +1,8 @@
 FROM debian:stable-slim
 
 RUN echo "empty"
-RUN apt update && \
-    apt install -y git nano screen curl \
+RUN apt-get update && \
+    apt-get install -y git nano screen curl \
                   libxml2-dev libxslt1-dev \
                   python-pip python3-pip python-dev \
                   python-openssl \
@@ -15,12 +15,15 @@ RUN apt update && \
 RUN rm -rf /usr/lib/python*/dist-packages/yaml &&\
 rm -rf /usr/lib/python*/dist-packages/PyYAML-*
 #install utills
-RUN pip install --upgrade pip &&\
-pip install -U pyopenssl &&\
-pip install --upgrade cryptography &&\
-pip install ndg-httpsclient && \
-pip install --upgrade pbr && \
-pip install --upgrade cliff && \
-pip install git+https://github.com/openstack/python-cinderclient \
-              git+https://github.com/openstack/python-heatclient \
-              python-openstackclient
+RUN python -m pip install --upgrade pip &&\
+python3 -m pip install -U pyopenssl &&\
+python3 -m pip install --upgrade cryptography &&\
+python3 -m pip install ndg-httpsclient && \
+python3 -m pip install --upgrade pbr && \
+python3 -m pip install --upgrade cliff && \
+python3 -m pip install osc-lib \
+              python-cinderclient \
+              python-heatclient
+
+RUN mkdir -p ~/images
+CMD /bin/bash
