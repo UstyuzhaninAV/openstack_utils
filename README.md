@@ -22,3 +22,20 @@
 `cinder type-list`
 - *Список доступных шаблонов ВМ (приватных)*
 `openstack flavor list | grep False`
+
+######
+Utilities for working with openstack packed in docker
+
+Running
+
+is possible via openstackutils.sh you need to fill in your openstack env credentials in advance (variables for selectel in the example)
+
+A short list of console commands. To work with the openstck api (requires a key from the control panel)
+
+list of available OS images glance image-list
+list of active VMs nova list
+list of available zones for the project nova availability-zone-list
+list of networks net-list
+list of current keys nova keypair-list
+list of available disks cinder type-list
+List of available VM templates (private) openstack flavor list | grep False
